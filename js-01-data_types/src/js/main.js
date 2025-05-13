@@ -22,7 +22,7 @@ console.log("Sesión JS-01, tipos de datos y variables");
 
 // ================= Datos primitivos ==================
 /*
- string: tipo de dato que rpresenta una secuencia de caracteres.
+ string: tipo de dato que representa una secuencia de caracteres.
   Puede incluir textos, números, espacios, símbolos. Siempre se 
   define entre comillas.
 
@@ -47,6 +47,22 @@ let valor2 = 4;
 console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valor2 + " pesos.");
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
+/* 
+  Crear una variable con el nombre de la persona que cumple años.
+  Crear una variable con el regalo que le darás.
+  Mostrar en consola el mensaje que incluya el nombre de la persona y el regalo.
+ */
+
+let nombre = "Jen";
+let regalo = "pastel";
+
+
+function felicitaciones(nombre,regalo){
+  console.log(`El cumpleaños de ${nombre} es hoy y te regalare ${regalo} espero que le guste.`);
+}
+
+felicitaciones(nombre,regalo);
+
 /*
  Tipos de datos number.
 
@@ -67,6 +83,18 @@ console.log( typeof +Infinity ); // 'number'
 console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
+
+/*Comprueba si las siguientes variables son del tipo number */
+
+const num1 = 42;
+
+/* Comprueba si las siguientes variables son del tipo string */
+const nameCh54 = "Luis";
+
+console.log(` ¿La variable num1 es de tipo number? ${typeof num1 === 'number'}`);
+console.log(` ¿La variable nameCh54 es de tipo string? ${typeof nameCh54 === 'string'}`);
+
+
 
 
 /*
@@ -114,7 +142,7 @@ console.log( typeof myName ); // 'undefined'
  Tipo de dato null
   - Una variable que intensionalmente se borra el tipo de dato
 
-  */
+  */ 
  
  let myAge; 
  console.log(`Tipo de dato en myAge: ${typeof myAge }`); // undefined
