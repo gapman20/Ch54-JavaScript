@@ -26,6 +26,10 @@ console.log("JS-02 funciones");
 
 */
 
+
+
+
+
 // =======================================================================
 
 /*
@@ -46,7 +50,12 @@ o funciones se eleven al comienzo de su ámbito antes de que se ejecute el códi
 */
 
 
+function saludar( nombre ){
+  console.log("Qué te gustaría de regalo de cumpleaños " + nombre);
+  
+}
 
+saludar("Jen");
 
 
 /*
@@ -63,8 +72,32 @@ sintaxis:
     };
 */
 
+const darRegalo = function ( nombre, regalo ){
+  console.log(`Felicidades ${nombre}, te traje ${regalo}`);
+};
 
+darRegalo("Jen", "Sopa Nisin");
 
+/*
+ Realizar una función declarada que sume dos números 
+ y retorne el resultado.
+ 
+ Realizar una función expresada que reste dos números 
+ y retorne el resultado.
+ 
+*/
+
+function sumaDeDosNumeros(num1, num2) {
+  return console.log(`La suma de ${num1} y ${num2} es de = ${num1 + num2}`);
+}
+
+const restaDeDosNumeros = function (numero1, numero2){
+  return console.log(`La sera de ${numero1} y ${numero2} es de = ${numero1 - numero2}`);
+};
+
+sumaDeDosNumeros(1,10);
+
+restaDeDosNumeros(10,2);
 
 
 /*
@@ -77,7 +110,11 @@ sintaxis:
 
 */
 
-
+(function setUp( data ) {
+  console.log("Configuración inicial de la aplicación");
+  console.log(`Valor de data ${data}`);
+})(18);
+//setUp();
 
 
 
@@ -98,11 +135,43 @@ sintaxis:
     }
 */
 
+// Realizar una función declarada que calcule el área de un triangulo
+// La función debe retornar el resultado.
+
+function areaDelTriangulo(base, altura){
+  return (base * altura) / 2;
+}
+console.log(`El área del triangulo con una altura de 2 y una base de 5 es de  ${areaDelTriangulo(2,5)}`);
+
+// Realizar una función expresada que calcule el área de un triangulo
+// La función debe retornar el resultado.
+
+const areaTriangulo = function(base,altura){
+  return ( base * altura )/2;
+}
+
+console.log(`El área del triangulo con una altura de 2 y una base de 5 usando la función expresada es de ${areaTriangulo(2,5)}`);
+
+// Realizar una función arrowfunction que calcule el área de un triangulo
+// La función debe retornar el resultado.
+
+const calcularArea3 = (base,altura) => base * altura / 2;
+
+console.log(`Resultado usando arrow function: ${calcularArea3(2,5)}`);
+
+// ¿Qué sucede si uso console.log como retorno?
+const imprimirArea = (base , altura) => console.log(calcularArea3(base,altura));
+imprimirArea(2,5);
+
+// Realizar una función flecha que calcule el área de un círculo
+// Área = pi * radio^2
+// Usar una función flecha para imprimir el resultado en un párrafo id="area-circulo"
+
+const areaDelCirculo = radio => Math.PI *(radio**2);
+const imprimirAreaDelCirculo = (radio) => document.getElementById("area-circulo").innerText = areaDelCirculo(radio);
 
 
-
-
-
+imprimirAreaDelCirculo(5);
 
 /*
  ------------ Parámetros por defecto -----------------------
@@ -110,8 +179,10 @@ sintaxis:
 Inicializa un parámetro de la función, si no se envía el argumento cuando se invoca
 
 */
+const saludarPersona = (nombre="persona invitada") => console.log(`Hola ${nombre}, ya nos vamos a descansar`);
 
-
+saludarPersona(); //Hola persona invitada, ya nos vamos a descansar 
+saludarPersona("Gabriel"); //Hola Gabriel, ya nos vamos a descansar 
 
 
 
@@ -121,8 +192,61 @@ Inicializa un parámetro de la función, si no se envía el argumento cuando se 
  a otra función como argumento.
  Se pasa en el argumento como referencia ( sin parentesis).
  */
+ const imprimirMensaje = ( fncCallBack ) => fncCallBack("Hola Ch54");
+                                            // 18("Hola Ch54");
+                                            // "patito"("Hola Ch54");
+                                            // console.log("Hola Ch54");
+                                            // undefined("Hola Ch54");
+ // imprimirMensaje( 18 ); // fncCallBack is not a function
+ // imprimirMensaje( "Patito" ); // fncCallBack is not a function
+ imprimirMensaje( console.log ); // "Hola Ch54"
+ // imprimirMensaje( console.log("Luis") ); //  fncCallBack is not a function
+ // imprimirMensaje( undefined ); //  fncCallBack is not a function
+
+const enviarAParrafo = (mensaje) => {
+  const saluda = "Hola, buen día";
+  const referencia = document.getElementById("saludo-callback");
+  referencia.innerHTML = `${saluda} ${mensaje}`;
+};
+
+imprimirMensaje(enviarAParrafo);
+
+/*
+  Usando la funcion imprimir mensaje, enviar un callback para que 
+  imprima con alert
+ */
 
 
+/* imprimirMensaje(alert);
+ */
+/*
+  Realizar una función que sume dos numeros y que imprima
+  el resultado.
+   - inicialmente se imprimirá en la consola
+   - es posible que se te pida imprimir en el dom
+   - es posible que se te pida imprimir en un alert
+*/
 
+const sumarDosNumeros = (a,b) => a + b ;
 
+/* const sumaEImprimir = (a,b, opcion = "consola") =>{
+  const resultado = sumarDosNumeros(a,b);
+  const mensaje = `La suma de ${a} + ${b} es: ${resultado}`;
+  if(opcion === "consola")console.log(mensaje);
+  else if (opcion ==="parrafo") document.getElementById("resultado-sumatoria").innerHTML = mensaje;
+  else if (opccion === "h2") document.getElementById("resultadoH2-sumatoria").innerHTML = mensaje;
+  else alert(mensaje)
   
+} */
+
+//sumaEImprimir(10,14); // se imprime en consola
+//sumaEImprimir(50,50, "parrafo"); // se imprime en el parrafo
+
+
+const sumaEImprimir = (a,b, imprimir) =>{
+  const resultado = sumarDosNumeros(a,b);
+  const mensaje = `La suma de ${a} + ${b} es: ${resultado}`;
+  imprimir(mensaje);
+}
+
+sumaEImprimir( 10, 14, console.log);
