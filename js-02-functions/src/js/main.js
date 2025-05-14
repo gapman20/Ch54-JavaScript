@@ -266,3 +266,80 @@ sumaEImprimir( 10, 14, imprimirEnDOMParagraph); // se imprime en paragraph
 sumaEImprimir( 10, 14, imprimirEnH2); // se imprime en h2
 //Imprimir en alter 
 //sumaEImprimir(10,14,alert);
+
+// -------------- Recursividad ---------------------
+/*
+  Una función recursiva es una función que se llama así misma durante su ejecución.
+
+  Se utilizan en algoritmos y soluciones que se basan en la división y conquista
+  como cálculos matemáticos, recorrido de estructura de datos y algoritmos de búsqueda
+  y ordenamiento.
+
+  Patrón:
+    function nombreFuncionRecursiva( parametro  ){
+        if( condicionParo){
+            return expresión;
+        }
+        else {
+            // llamada recursiva
+            nombreFuncionRecursiva( nuevoParametro );
+        }
+    }
+*/
+
+// Calcular el factorial de un número
+// factorial de 5 : 
+function factorialConCicloFor (numero){
+  let factorial = 1;
+  for(let i=0; i < numero; i++){
+    factorial *= (numero - i); 
+    console.log(`i: ${i}, factorial: ${factorial}, numero: ${numero - i}`);
+    
+  }
+  return factorial;
+}
+
+console.log(`El factorial de 5 es: ${factorialConCicloFor(5)}`);
+
+// calculando el factorial con recursividad
+
+function factorialConRecursividad( numero ){
+    console.log(`Resolviendo el factorial de ${numero}`);
+    if( numero <= 1  ) return 1 ;    
+    const result = factorialConRecursividad( numero - 1 ) * numero ;
+    console.log(`El factorial de ${numero} es ${result}`);
+    return result;
+}
+console.log(`Resultado final: ${ factorialConRecursividad(5)}`); // 120
+
+/*
+    parámetro   recursividad(n-1)   returnFnc
+    1            ----               1
+    2          2-1 = 1              2
+    3          3-1 = 2              6
+    4          4-1 = 3              24
+    5          5-1 = 4              120
+*/
+
+/*
+ Generar una función recursiva que muestre en consola un saludo
+ donde se indique el número saludo deseado.
+  ej: saludar 10 veces
+  Saludo 1
+  Saludo 2
+  Saludo 3
+  Saludo 4
+  Saludo 5
+  Saludo 6
+   ....
+  Saludo 10
+*/
+
+function saludoConRecursividad( numeroSaludos){
+  if(numeroSaludos <= 0) return numeroSaludos;
+  const result = saludoConRecursividad(numeroSaludos - 1 ) ;
+  console.log(`Saludo ${numeroSaludos}`);
+  return result;
+}
+
+console.log(`Numero de saludo ${saludoConRecursividad(10)}`);
