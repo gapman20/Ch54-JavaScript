@@ -227,7 +227,6 @@ imprimirMensaje(enviarAParrafo);
    - es posible que se te pida imprimir en un alert
 */
 
-const sumarDosNumeros = (a,b) => a + b ;
 
 /* const sumaEImprimir = (a,b, opcion = "consola") =>{
   const resultado = sumarDosNumeros(a,b);
@@ -237,16 +236,33 @@ const sumarDosNumeros = (a,b) => a + b ;
   else if (opccion === "h2") document.getElementById("resultadoH2-sumatoria").innerHTML = mensaje;
   else alert(mensaje)
   
-} */
+  } */
+ 
+ //sumaEImprimir(10,14); // se imprime en consola
+ //sumaEImprimir(50,50, "parrafo"); // se imprime en el parrafo
+ 
+const sumarDosNumeros = (a,b) => a + b ;
 
-//sumaEImprimir(10,14); // se imprime en consola
-//sumaEImprimir(50,50, "parrafo"); // se imprime en el parrafo
-
-
-const sumaEImprimir = (a,b, imprimir) =>{
+const sumaEImprimir = (a,b, imprimir = console.log) =>{
   const resultado = sumarDosNumeros(a,b);
   const mensaje = `La suma de ${a} + ${b} es: ${resultado}`;
   imprimir(mensaje);
 }
 
-sumaEImprimir( 10, 14, console.log);
+sumaEImprimir( 10, 14); // se imprime en la consola
+
+const imprimirEnDOMParagraph = (mensaje) => {
+  const refParagraph = document.getElementById("resultado-sumatoria");
+  refParagraph.innerHTML = mensaje;
+}
+
+const imprimirEnH2 = (mensaje) => {
+  const refParagraph = document.getElementById("resultadoH2-sumatoria");
+  refParagraph.innerHTML = mensaje;
+}
+
+
+sumaEImprimir( 10, 14, imprimirEnDOMParagraph); // se imprime en paragraph
+sumaEImprimir( 10, 14, imprimirEnH2); // se imprime en h2
+//Imprimir en alter 
+//sumaEImprimir(10,14,alert);
