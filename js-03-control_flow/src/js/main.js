@@ -42,6 +42,82 @@
 
 */
 
+/* 
+    Crear un arrow function que reciba el valor de edad.
+    Si la edad es mayor o igual a 18, la función debe
+    retornar el mensaje "Eres mayor de edad".
+
+    En caso contrario, retornar el mensaje "Erres menor de edad".
+
+    -Realizar la versión de if-else sin usar el bloque de código{}
+*/
+
+const valorEdad = edad =>{ 
+    if (edad >= 18) return "Eres mayor de Edad";
+    else  return "Eres menor de edad";
+    
+}
+
+console.log(valorEdad(18));
+
+
+/* 
+    Crear un arrow function que reciba el valor de edad.
+    Si la edad es mayor o igual a 18 y menos o igual a 30
+                    (evaluar con 18 y (&&) evaluar con 30)
+    la funcion debe retornar el mensaje "Tu luchador era Mistico"
+
+
+    Si es mayo o igual a 31 el mensaje "Tu luchador es el perro aguayo"
+
+    Si es menor a 18 el mensaje "Tu luchador es Penta"
+*/
+
+const luchadorEdad = edad =>{ 
+    if(edad <= 18) return "Tu luchador es Penta"
+    else if(edad >= 18 && edad <= 30) return "Tu luchado era Mistico"
+    else return "Tu luchador es el perro aguayo"
+};
+
+console.log(luchadorEdad(31));
+
+// Bloque de código 
+{
+    let myVarLet = 30;
+    const myVarConst = 40;
+    var myVarVar = 50;
+    console.log(myVarLet, myVarConst, myVarVar);
+    {
+        let myVarLet = 100;
+        const myVarConst = 110;
+        var myVarVar = 120;
+        console.log(myVarLet, myVarConst, myVarVar);
+    }
+    console.log(myVarLet, myVarConst, myVarVar);
+}
+
+// Ejercicios mentales
+let active = false;
+if( active === true ); {
+    console.log("Estas activo");
+}
+console.log("Fin del programa");
+
+// 
+active = false;
+if ( active ) 
+    console.log("Estas activo");
+    console.log("Tiene autorización");
+
+console.log("Fin del programa");
+
+// Ejercicio 3
+active = false;
+if (active); console.log("Estas activo");
+//else console.log("No esta activo"); //Unexpected token "else"
+//console.log("Fin del programa");
+
+
 
 
 
@@ -73,7 +149,32 @@
 
 */
 
-
+const evaluarNombre = (nombre) => {
+    let resultado;
+    switch (nombre){
+        case "Lua":
+            resultado = "Es de Abril";
+            break;
+        case "Borrego":
+        case "Besito":
+        case "Frijol":
+        case "Paco":
+            resultado = "Es de Yessica";
+            break;
+        case "Milo":
+            resultado = "Es de Carlos";
+            break;
+        case "Cuchara":
+            resultado = "Es de Ricardo";
+            break;
+        default:
+            resultado = "No se sabe de quién es";
+    }
+    return resultado;
+}
+console.log(evaluarNombre("Lua")); // Es de Abril
+console.log(evaluarNombre("Milo")); // Es de Carlos
+console.log(evaluarNombre("Borrego")); // Es de Yessica
 
 
 /**
@@ -87,6 +188,46 @@
  * @param {number} velocidad
  * @returns {string} mensaje
  */
+
+/* Funcion con Switch */
+
+const evaluarVelocidadDelVentiladorConSwitch  = velocidad => {
+    let resultado;
+    switch(velocidad){
+        case 0 :
+            resultado = "Apagado";
+            break;
+        case 1 :
+            resultado = " Velocidad Baja";
+            break;
+        case 2 :
+            resultado = "Velocidad Media";
+            break;
+        case 3 :
+            resultado = "Velocidad Alta";
+            break;
+        default :
+            resultado = "Velocidad desconocida";
+    }
+    return resultado;
+}
+
+console.log(evaluarVelocidadDelVentiladorConSwitch(3));
+
+/* Funcion con if - else */
+
+const evaluarVelocidadDelVentiladorConIfElse = velocidad => {
+    let resultado;
+    if(velocidad === 0) resultado = "Velocidad Apagado";
+    else if (velocidad === 1) resultado = "Velocidad Baja";
+    else if (velocidad === 2) resultado = "Velocidad Media";
+    else if (velocidad === 3) resultado = "Velocidad Alta";
+    else resultado = "Velocidad desconocida "
+    return resultado;
+}
+
+console.log(evaluarVelocidadDelVentiladorConIfElse(9));
+
 
 
 
