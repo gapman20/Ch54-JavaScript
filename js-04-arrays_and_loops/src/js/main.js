@@ -54,6 +54,17 @@ for ( const color of colores ) {
 const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+// Imprimir en consola cada uno de los cantantes usando for of
+
+const imprimirEnConsola = (listaDeCantantes) =>{
+
+    for (const cantante of listaDeCantantes){
+        console.log(cantante);
+    }
+};
+
+imprimirEnConsola(cantantes);
+
 
 
 // ------------------- Uso de break en ciclos ----------------------------
@@ -80,6 +91,14 @@ for (let i = 1; i <= 7; i++ ){
 
 }
 
+// Ejercicios mentales 
+
+let myIteration; // undefined
+for (myIteration = 0; myIteration <= 5; myIteration++) {
+    console.log("For loop", myIteration ); //  0, 1, 2
+    if (myIteration === 2) break;    
+}
+console.log("Final", myIteration); // 2
 
 
 
@@ -88,7 +107,7 @@ for (let i = 1; i <= 7; i++ ){
 // break: Termina completamente un bucle (for, while, switch, etc.).
 // continue: Salta la iteración actual y pasa a la siguiente sin salir del bucle.
 
-console.log(   NaN === NaN );  // false
+
 for (let i = 0 ; i <= 5; i++ ){
     if ( i === 3) continue;
     console.log("Estoy dentro del ciclo for"); 
@@ -119,4 +138,60 @@ for (let i = 0 ; i <= 5; i++ ){
 
 */
 
+/* 
+    Pregunta al usuario si quiere que se genere su número de la suerte.
+    Si la respuesta es "si", genera de forma aleatoria un número
+    En caso contrario, despedirse 
+*/
 
+
+/* while( confirm("Quieres tu número de la suerte?") ){
+    const numeroSuerte = Math.random();
+    console.log(`Tu número de la suerte es: ${numeroSuerte}`);
+    
+} */
+
+// for loop vs while loop
+
+for (let i = 0; i < 5; i++) {
+    console.log("For loop", i);
+}
+
+let numIteracion = 0;
+while (numIteracion < 5) {
+    console.log("While loop", numIteracion );
+    numIteracion++;
+}
+
+/* 
+    Uso de Math.random();
+    Generar 5 número aleatorios.
+    Los número deben de estar entre el 0.0 y 10.0 (sin incluir 10.0)
+*/
+
+const generarNumeroAleatorios = (cantidad) =>{
+    for (let i = 0; i < cantidad; i++){
+        const numeroAleatorio = Math.random() * 10;
+        console.log(`Número aleatorio ${numeroAleatorio}`);
+    }
+    return numeroAleatorio;
+}
+
+generarNumeroAleatorios(5);
+/* 
+    Uso de Math.random();
+    Generar 5 número aleatorios.
+    Los número deben de estar entre el 0.0 y 10.0 (sin incluir 10.0)
+    Solo número enteros
+*/
+
+const generarNumeroAleatorios2 = (cantidad) =>{
+    for (let i = 0; i < cantidad; i++){
+        const numeroAleatorio = Math.random() * 10;
+        const numeroEntero = Math.floor(numeroAleatorio);
+        console.log(`Número aleatorio ${numeroAleatorio}`);
+    }
+    return numeroAleatorio;
+}
+
+generarNumeroAleatorios(5);
