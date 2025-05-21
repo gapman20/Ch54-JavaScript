@@ -33,13 +33,39 @@ const changeElementById = () =>{
   //         document es el objeto principal del DOM.
     const descripcionOperadores = document.getElementById("descripcion-document");
     console.log( descripcionOperadores );
+    
     // descripcionOperadores.innerText = "document: representa cualquier página web carga en el navegador.";
     //descripcionOperadores.innerText = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
+    //descripcionOperadores.textContent = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
     //descripcionOperadores.innerHTML = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
     descripcionOperadores.innerHTML = '<span class="text-warning">document</span>: representa cualquier página web carga en el navegador.';
 }
 
 changeElementById();
+
+/*
+ Modificar el parragraph de la línea 44 a 49 del html
+ Mostrar una tarjeta de bootstrao con el titulo "<Mi nombre>"
+ - Crear una nueva función que inserte la tarjeta.
+ - Invotar la función para que se ejecute.
+*/
+
+const changetoCard = (name ) =>{
+    const card = document.getElementById("card");
+
+    card.innerHTML = `
+    <div class="card" style="width: 18rem;">
+    <img src="./public/images/gabriel-alvarez.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text">Hola soy programador Jr.</p>
+            <a href="https://www.linkedin.com/in/jose-gabriel-alvarez-perez/" class="btn btn-primary">LinkedIn</a>
+        </div>
+    </div> 
+ `;
+}
+
+changetoCard("Gabriel Alvarez");
 
 /**
  * Modificar elementos por su tag(etiqueta HTML)
@@ -55,6 +81,14 @@ const changeElementsByTagName =  () => {
 }
 
 // changeElementsByTagName();
+
+const numeroDeBotones = () =>{
+    const buttonItems = document.getElementsByTagName("button");
+    console.log(`Los botones totales son ${buttonItems.length}`);
+}
+
+numeroDeBotones();
+
 
 /**
  * Acceder a un elemento usando el selector universar
