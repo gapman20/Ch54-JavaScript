@@ -59,6 +59,8 @@ Características clave de los módulos JS:
   export function sumar(a, b) {
     return a + b;
   }
+  
+  export {PI, sumar}; // Exportación nombrada
 
   También puedes exportar por defecto (solo uno por módulo):
   export default function saludar(nombre) {
@@ -79,7 +81,13 @@ Características clave de los módulos JS:
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
 
+import { insertMainHeader } from "../modules/header/header.js";
+//import { insertMainFooter } from "../modules/footer/footer.js";
+import footer from "../modules/footer/footer.js"
 
+
+insertMainHeader( document.getElementById("header"));
+footer( document.getElementById("footer"));
 
 /*
   Uso del local Storage.
@@ -100,8 +108,23 @@ Características clave de los módulos JS:
 
 */
 
+/*
+ Crear en el HTML un input y un botón para guardar el valor en el localStorage.
+  
+  Al cargar la página, si hay un valor guardado, mostrarlo en el titulo H1 "Hola, {nombre}".
+  En caso contrario, mostrar "Hola, persona invitada".
+*/
 
+const obtenerValorDeInput = () =>{
+   const nombre = document.getElementById("nombreInput");
+  return nombre
+}
 
+const guardarNombreEnLocalStorage = (nombreInput) => {
+  localStorage.setItem("nombre", nombreInput.value);
+  console.log(localStorage.getItem("nombre"));
+  
+}
 
 /*
   Programación síncrona.
