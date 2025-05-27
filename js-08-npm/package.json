@@ -1,0 +1,18 @@
+{
+  "name": "sesion-js-08-npm",
+  "version": "0.0.1",
+  "description": "Uso de NPM en una aplicación web",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "generation",
+    "js08"
+  ],
+  "author": "Gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  }
+}
