@@ -5,8 +5,9 @@ const postUser = async ( user,url ) =>{
     // el objeto de configuración del método fetch.
     const options = {
         method: "POST", //Método HTTP
-        Headers: {
-            "Content-type": "application/json" // Tipo de contenido
+        headers: {
+            "Content-type": "application/json", // Tipo de contenido
+            "x-api-key": "reqres-free-v1"
         },
         body: JSON.stringify(user) // Cuerpo de la petición
     }

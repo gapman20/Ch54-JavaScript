@@ -27,7 +27,7 @@ registerForm.addEventListener( "submit" , async ( e )=>{
         // Si los datos son válidos enviar el formulario
         try{
             const response = await postUser( newUser, "https://reqres.in/api/users" );
-            alert("Formulario enviado correctamente" + response.createdAt);
+            alert("Formulario enviado correctamente " + response.createdAt);
         }catch(error){
             alert( "Error al enviar el formulario" + error.message);
         }
